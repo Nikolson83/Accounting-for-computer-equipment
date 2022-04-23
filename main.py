@@ -11,7 +11,22 @@ class Main(tk.Frame):
     def init_main(self):
         # Верхняя полоска кнопок для дочернего окна
         toolbar_main = tk.Frame(bg='#d7d8e0', bd=2)
-        toolbar_main.pack(side=tk.TOP, ipady=100)
+        toolbar_main.pack(side=tk.TOP, ipady=100, ipadx=500)
+
+        label_name = tk.Label(toolbar_main, text='Матеріальна цінність:', font=8, bg='#d7d8e0')
+        label_name.place(x=10, y=10)
+        label_inv_nomer = tk.Label(toolbar_main, text='Інв. номер:', font=8, bg='#d7d8e0')
+        label_inv_nomer.place(x=10, y=50)
+        label_PIB = tk.Label(toolbar_main, text='ПІБ:', font=8, bg='#d7d8e0')
+        label_PIB.place(x=10, y=90)
+
+        self.entry_name = ttk.Entry(toolbar_main, width=50)
+        self.entry_name.place(x=200, y=10)
+        self.entry_inv_nomer = ttk.Entry(toolbar_main, width=20)
+        self.entry_inv_nomer.place(x=200, y=50)
+        self.entry_PIB = ttk.Entry(toolbar_main, width=50)
+        self.entry_PIB.place(x=200, y=90)
+        # End
 
         my_menu = tk.Menu(self)
         root.config(menu=my_menu)

@@ -17,3 +17,8 @@ class DB:
                           VALUES (?, ?, ?, ?, ?, ?)''',(add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out))
         self.conn.commit()
 
+    def search_records(self, add_name, add_inv_nomer):
+        add_name = ('%' + add_name + '%',) #Подстановочные символы ищет любое значение
+        add_name = ('%' + add_inv_nomer + '%',)  # Подстановочные символы ищет любое значение
+        self.c.execute('''SELECT * FROM finance WHERE add_name LIKE ?''', add_name) # Обращение к полю add_name LIKE это наш запрос
+
