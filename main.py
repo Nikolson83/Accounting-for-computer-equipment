@@ -7,6 +7,15 @@ class Main(tk.Frame):
     def __init__(self, root):
         super().__init__(root)
         self.init_main()
+        self.view_records()
+
+    def view_records(self):  # Передача данных
+        self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
+        self.c = self.conn.cursor()  # Взаимодействие с базой
+        self.c.execute('''SELECT * FROM accounting''')
+        [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных
+        # Генератор
+        [self.tree.insert('', 'end', values=row) for row in self.c.fetchall()]  # Добавление новых значений после предедущих
 
     def search_db(self):
         # Верхняя полоска кнопок для дочернего окна
@@ -26,6 +35,27 @@ class Main(tk.Frame):
         self.entry_inv_nomer.place(x=250, y=55)
         self.entry_PIB = ttk.Entry(toolbar_main, width=50)
         self.entry_PIB.place(x=250, y=95)
+        # End
+
+    def view_tree(self):
+        # Таблица и формирование шапки
+        self.tree = ttk.Treeview(self, columns=('add_name', 'add_inv_nomer', 'add_pib',
+                                                'add_division', 'add_data_in', 'add_data_out'), show='headings')
+        self.tree.column('add_name', width=200, anchor=tk.CENTER)
+        self.tree.column('add_inv_nomer', width=100, anchor=tk.CENTER)
+        self.tree.column('add_pib', width=250, anchor=tk.CENTER)
+        self.tree.column('add_division', width=250, anchor=tk.CENTER)
+        self.tree.column('add_data_in', width=100, anchor=tk.CENTER)
+        self.tree.column('add_data_out', width=100, anchor=tk.CENTER)
+
+        self.tree.heading('add_name', text='Матеріальна цінність')
+        self.tree.heading('add_inv_nomer', text='Інв. номер')
+        self.tree.heading('add_pib', text='ПІБ')
+        self.tree.heading('add_division', text='Підрозділ')
+        self.tree.heading('add_data_in', text='Дата введення')
+        self.tree.heading('add_data_out', text='Дата зняття')
+
+        self.tree.pack(side=tk.LEFT, ipady=150)
         # End
 
     def init_main(self):
@@ -49,24 +79,7 @@ class Main(tk.Frame):
         edit_menu.add_command(label="Змінити дані", command=self.quit)  # "Выход" подменю "Файл"
         edit_menu.add_command(label="Видалити дані", command=self.quit)  # "Выход" подменю "Файл"
 
-        # Таблица и формирование шапки
-        self.tree = ttk.Treeview(self, columns=('add_name', 'add_inv_nomer', 'add_pib',
-                                                'add_division', 'add_data_in', 'add_data_out'), show='headings')
-        self.tree.column('add_name', width=200, anchor=tk.CENTER)
-        self.tree.column('add_inv_nomer', width=100, anchor=tk.CENTER)
-        self.tree.column('add_pib', width=250, anchor=tk.CENTER)
-        self.tree.column('add_division', width=250, anchor=tk.CENTER)
-        self.tree.column('add_data_in', width=100, anchor=tk.CENTER)
-        self.tree.column('add_data_out', width=100, anchor=tk.CENTER)
-
-        self.tree.heading('add_name', text='Матеріальна цінність')
-        self.tree.heading('add_inv_nomer', text='Інв. номер')
-        self.tree.heading('add_pib', text='ПІБ')
-        self.tree.heading('add_division', text='Підрозділ')
-        self.tree.heading('add_data_in', text='Дата введення')
-        self.tree.heading('add_data_out', text='Дата зняття')
-
-        self.tree.pack(side=tk.LEFT, ipady=150)
+        self.view_tree()
 
     def open_dialog(self):
          CreateChild(self)

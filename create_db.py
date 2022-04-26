@@ -37,3 +37,17 @@ class DB:
         self.insert_data(add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out)
         print('Я создал базу4')
 
+    #def view_records(self):  # Передача данных
+    #    self.c.execute('''SELECT * FROM accounting''')
+    #    [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных
+    #    # Генератор
+    #    [self.tree.insert('', 'end', values=row) for row in
+    #     self.c.fetchall()]  # Добавление новых значений после предедущих
+
+    #def view_delete(self):
+    #    self.c.execute('''SELECT * FROM accounting''')
+    #    print('Я создал базу5')
+
+    #def view_insert(self):
+    #    self.c.fetchall()  # Добавление новых значений после предедущих
+    #    print('Я создал базу6')
