@@ -8,25 +8,28 @@ class Main(tk.Frame):
         super().__init__(root)
         self.init_main()
 
-    def init_main(self):
+    def search_db(self):
         # Верхняя полоска кнопок для дочернего окна
         toolbar_main = tk.Frame(bg='#d7d8e0', bd=2)
         toolbar_main.pack(side=tk.TOP, ipady=100, ipadx=500)
 
         label_name = tk.Label(toolbar_main, text='Матеріальна цінність:', font=8, bg='#d7d8e0')
-        label_name.place(x=10, y=10)
+        label_name.place(x=20, y=10)
         label_inv_nomer = tk.Label(toolbar_main, text='Інв. номер:', font=8, bg='#d7d8e0')
-        label_inv_nomer.place(x=10, y=50)
+        label_inv_nomer.place(x=115, y=50)
         label_PIB = tk.Label(toolbar_main, text='ПІБ:', font=8, bg='#d7d8e0')
-        label_PIB.place(x=10, y=90)
+        label_PIB.place(x=180, y=90)
 
         self.entry_name = ttk.Entry(toolbar_main, width=50)
-        self.entry_name.place(x=200, y=10)
+        self.entry_name.place(x=250, y=15)
         self.entry_inv_nomer = ttk.Entry(toolbar_main, width=20)
-        self.entry_inv_nomer.place(x=200, y=50)
+        self.entry_inv_nomer.place(x=250, y=55)
         self.entry_PIB = ttk.Entry(toolbar_main, width=50)
-        self.entry_PIB.place(x=200, y=90)
+        self.entry_PIB.place(x=250, y=95)
         # End
+
+    def init_main(self):
+        self.search_db()
 
         my_menu = tk.Menu(self)
         root.config(menu=my_menu)
@@ -68,7 +71,7 @@ class Main(tk.Frame):
     def open_dialog(self):
          CreateChild(self)
 
-if __name__ == "__main__": #Параметры главного окна
+if __name__ == "__main__": # Параметры главного окна
     root = tk.Tk()
     app = Main(root)
     app.pack()

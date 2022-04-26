@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="047d6e74-2827-4d38-8128-8f3a28519a1c" name="Default" comment="Add python">
+    <list default="true" id="047d6e74-2827-4d38-8128-8f3a28519a1c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/create_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +127,8 @@
       <workItem from="1650703659601" duration="3862000" />
       <workItem from="1650710504747" duration="378000" />
       <workItem from="1650725028703" duration="394000" />
-      <workItem from="1650725656004" duration="2958000" />
+      <workItem from="1650725656004" duration="3312000" />
+      <workItem from="1650974411690" duration="899000" />
     </task>
     <task id="LOCAL-00001" summary="Add test.py">
       <created>1650214550949</created>
@@ -158,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650710574142</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add Search to main">
+      <created>1650728960792</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650728960792</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -206,10 +213,11 @@
     <MESSAGE value="Delete test.py" />
     <MESSAGE value="Add python" />
     <MESSAGE value="Change path to python" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change path to python" />
+    <MESSAGE value="Add Search to main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Search to main" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1650728635906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1650975315990" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">
