@@ -8,11 +8,11 @@ class CreateChild(tk.Toplevel):
         super().__init__(root)
         self.init_child()
         self.grab_focus()
-        self.open_db() #База данных
-        self.db = DB()
+        #self.open_db() #База данных
+        #self.db = DB()
 
-    def open_db(self):
-        DB() #База данных
+    #def open_db(self):
+    #    DB() #База данных
 
     def init_child(self):
         self.title("Додати дані - Облік комп'ютерної техніки ")
@@ -24,9 +24,12 @@ class CreateChild(tk.Toplevel):
         toolbar_child.pack(side=tk.TOP, fill=tk.X)
 
         self.checked_img = tk.PhotoImage(file='img/checked.png')
-        btn_checked_dialog = tk.Button(toolbar_child, text='Добавить', command=self.destroy, bg='#d7d8e0', bd=0,
+        btn_checked_dialog = tk.Button(toolbar_child, text='Добавить', bg='#d7d8e0', bd=0,
                                      compound=tk.TOP, image=self.checked_img)
         btn_checked_dialog.pack(side=tk.LEFT, padx=10)
+        btn_checked_dialog.bind('<Button-1>', lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
+                                                                       self.entry_PIB.get(), self.entry_division.get(),
+                                                                       self.entry_data_in.get(), self.entry_data_out.get()))
 
         self.cancel_img = tk.PhotoImage(file='img/cancel.png')
         btn_cancel_dialog = tk.Button(toolbar_child, text='Отменить', command=self.destroy, bg='#d7d8e0', bd=0,
