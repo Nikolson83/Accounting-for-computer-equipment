@@ -48,6 +48,10 @@ class DB:
     #    self.c.execute('''SELECT * FROM accounting''')
     #    print('Я создал базу5')
 
-    #def view_insert(self):
-    #    self.c.fetchall()  # Добавление новых значений после предедущих
-    #    print('Я создал базу6')
+    def view_insert(self, db_fetchall):
+        self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
+        self.c = self.conn.cursor()  # Взаимодействие с базой
+        self.c.execute('''SELECT * FROM accounting''')
+        db_fetchall = self.c.fetchall()  # Добавление новых значений после предедущих
+        return db_fetchall
+        #print(db_fetchall)

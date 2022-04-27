@@ -16,7 +16,7 @@ class CreateChild(tk.Toplevel):
 
     def init_child(self):
         self.title("Додати дані - Облік комп'ютерної техніки ")
-        self.geometry("924x600+300+60")  # Указываем размеры окна
+        self.geometry("924x600+340+60")  # Указываем размеры окна
         self.resizable(False, False)  # Делаем невозможным менять размеры окна
 
         # Верхняя полоска кнопок для дочернего окна
@@ -24,7 +24,7 @@ class CreateChild(tk.Toplevel):
         toolbar_child.pack(side=tk.TOP, fill=tk.X)
 
         self.checked_img = tk.PhotoImage(file='img/checked.png')
-        btn_checked_dialog = tk.Button(toolbar_child, text='Добавить', bg='#d7d8e0', bd=0,
+        btn_checked_dialog = tk.Button(toolbar_child, text='Добавить', command=self.destroy, bg='#d7d8e0', bd=0,
                                      compound=tk.TOP, image=self.checked_img)
         btn_checked_dialog.pack(side=tk.LEFT, padx=10)
         btn_checked_dialog.bind('<Button-1>', lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
