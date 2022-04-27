@@ -41,18 +41,18 @@ class Main(tk.Frame):
         toolbar_main.pack(side=tk.TOP, ipady=80, ipadx=545)
 
         label_name = tk.Label(toolbar_main, text='Матеріальна цінність:', font=8, bg='#d7d8e0')
-        label_name.place(x=20, y=10)
+        label_name.place(x=20, y=25)
         label_inv_nomer = tk.Label(toolbar_main, text='Інв. номер:', font=8, bg='#d7d8e0')
-        label_inv_nomer.place(x=115, y=50)
+        label_inv_nomer.place(x=115, y=65)
         label_PIB = tk.Label(toolbar_main, text='ПІБ:', font=8, bg='#d7d8e0')
-        label_PIB.place(x=180, y=90)
+        label_PIB.place(x=180, y=105)
 
         self.entry_name = ttk.Entry(toolbar_main, width=50)
-        self.entry_name.place(x=250, y=15)
+        self.entry_name.place(x=250, y=30)
         self.entry_inv_nomer = ttk.Entry(toolbar_main, width=20)
-        self.entry_inv_nomer.place(x=250, y=55)
+        self.entry_inv_nomer.place(x=250, y=70)
         self.entry_PIB = ttk.Entry(toolbar_main, width=50)
-        self.entry_PIB.place(x=250, y=95)
+        self.entry_PIB.place(x=250, y=110)
         # End
 
     def view_tree(self):
