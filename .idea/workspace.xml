@@ -130,7 +130,7 @@
       <workItem from="1650710504747" duration="378000" />
       <workItem from="1650725028703" duration="394000" />
       <workItem from="1650725656004" duration="3312000" />
-      <workItem from="1650974411690" duration="23798000" />
+      <workItem from="1650974411690" duration="35372000" />
     </task>
     <task id="LOCAL-00001" summary="Add test.py">
       <created>1650214550949</created>
@@ -195,7 +195,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651049163909</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add menu delete">
+      <created>1651051110310</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1651051110310</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -248,10 +255,11 @@
     <MESSAGE value="Add information to databases" />
     <MESSAGE value="Out tree to main" />
     <MESSAGE value="Out tree to main and menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Out tree to main and menu" />
+    <MESSAGE value="Add menu delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add menu delete" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1651050851711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1651064547527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">

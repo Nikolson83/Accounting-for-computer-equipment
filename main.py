@@ -10,16 +10,30 @@ class Main(tk.Frame):
         self.init_main()
         self.view_records()
 
+    def view_insert(self):
+        self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
+        self.c = self.conn.cursor()  # Взаимодействие с базой
+        self.c.execute('''SELECT * FROM accounting''')
+
     def view_records(self):  # Передача данных
+        self.view_insert()
         [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных
         # Генератор
-        [self.tree.insert('', 'end', values=row) for row in DB.view_insert(self, db_fetchall=0)]  # Добавление новых значений после предедущих
+        [self.tree.insert('', 'end', values=row) for row in self.c.fetchall()]  # Добавление новых значений после предедущих
 
     def delete_records(self):
         for selection_item in self.tree.selection(): # Цыкл проходит по всем строка
             self.c.execute('''DELETE FROM accounting WHERE add_id=?''', (self.tree.set(selection_item, '#1'),)) # Метот set возвращает значение
         self.conn.commit()
         self.view_records()
+
+    def search_records(self):
+        DB.search_records(self, self.entry_name.get(), self.entry_inv_nomer.get(), self.entry_PIB.get())
+        self.entry_name.delete(0, 'end')
+        self.entry_inv_nomer.delete(0, 'end')
+        self.entry_PIB.delete(0, 'end')
+        [self.tree.delete(i) for i in self.tree.get_children()]# Очистка нашу таблицу
+        [self.tree.insert('', 'end', values=row) for row in self.c.fetchall()] #Отображение нашего запроса
 
     def search_db(self):
         # Верхняя полоска кнопок для дочернего окна
@@ -90,7 +104,7 @@ class Main(tk.Frame):
         update_menu = tk.Menu(my_menu, tearoff=0) # створення меню
         my_menu.add_cascade(label="Вид", menu=update_menu)  # "Файл" до главного окна
         update_menu.add_command(label="Оновлення", command=self.view_records)  # "Новый" подменю "Файл"
-        update_menu.add_command(label="Пошук", command=self.open_dialog)  # "Новый" подменю "Файл"
+        update_menu.add_command(label="Пошук", command=self.search_records)  # "Найти"
 
     def open_dialog(self):
          CreateChild(self)
