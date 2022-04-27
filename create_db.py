@@ -5,6 +5,7 @@ class DB:
     def __init__(self):
         self.conn = sqlite3.connect('accounting.db') #Соединение с базой данных
         self.c = self.conn.cursor() #Взаимодействие с базой
+        self.c.execute('''SELECT * FROM accounting''')
         print('Я создал базу')
 
     # Добавляем в поля вводимые значения

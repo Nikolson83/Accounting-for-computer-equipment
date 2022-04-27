@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from add_child import CreateChild
-#import sqlite3
+import sqlite3
 from create_db import DB
 
 class Main(tk.Frame):
@@ -14,6 +14,12 @@ class Main(tk.Frame):
         [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных
         # Генератор
         [self.tree.insert('', 'end', values=row) for row in DB.view_insert(self, db_fetchall=0)]  # Добавление новых значений после предедущих
+
+    def delete_records(self):
+        for selection_item in self.tree.selection(): # Цыкл проходит по всем строка
+            self.c.execute('''DELETE FROM accounting WHERE add_id=?''', (self.tree.set(selection_item, '#1'),)) # Метот set возвращает значение
+        self.conn.commit()
+        self.view_records()
 
     def search_db(self):
         # Верхняя полоска кнопок для дочернего окна
@@ -78,7 +84,7 @@ class Main(tk.Frame):
         my_menu.add_cascade(label="Редагування", menu=edit_menu) #"Файл" до главного окна
         edit_menu.add_command(label="Додати дані", command=self.open_dialog) #"Новый" подменю "Файл"
         edit_menu.add_command(label="Змінити дані", command=self.quit)  # "Выход" подменю "Файл"
-        edit_menu.add_command(label="Видалити дані", command=self.quit)  # "Выход" подменю "Файл"
+        edit_menu.add_command(label="Видалити дані", command=self.delete_records)  # "Выход" подменю "Файл"
 
         # Создание меню Обновление
         update_menu = tk.Menu(my_menu, tearoff=0) # створення меню
