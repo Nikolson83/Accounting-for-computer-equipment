@@ -45,6 +45,12 @@ class DB:
     def records(self, add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out):
         self.insert_data(add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out)
 
+    #def update_records(self, row_id):
+    #    self.c.execute('''SELECT * FROM accounting WHERE add_id=?''', row_id)
+    #    row_id = self.c.fetchone()
+    #    print(row_id[5])
+    #    return row_id[5]
+
     #def view_records(self):  # Передача данных
     #    self.c.execute('''SELECT * FROM accounting''')
     #    [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных

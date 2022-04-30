@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="047d6e74-2827-4d38-8128-8f3a28519a1c" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounting.db" beforeDir="false" afterPath="$PROJECT_DIR$/accounting.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_child.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_child.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_db.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_db.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +131,11 @@
       <workItem from="1650710504747" duration="378000" />
       <workItem from="1650725028703" duration="394000" />
       <workItem from="1650725656004" duration="3312000" />
-      <workItem from="1650974411690" duration="35982000" />
+      <workItem from="1650974411690" duration="37227000" />
+      <workItem from="1651075537705" duration="35000" />
+      <workItem from="1651251282891" duration="142000" />
+      <workItem from="1651319386047" duration="16000" />
+      <workItem from="1651319736817" duration="11742000" />
     </task>
     <task id="LOCAL-00001" summary="Add test.py">
       <created>1650214550949</created>
@@ -207,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651064942399</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Design">
+      <created>1651065468299</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1651065468299</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -262,10 +276,11 @@
     <MESSAGE value="Out tree to main and menu" />
     <MESSAGE value="Add menu delete" />
     <MESSAGE value="Functions search" />
-    <option name="LAST_COMMIT_MESSAGE" value="Functions search" />
+    <MESSAGE value="Design" />
+    <option name="LAST_COMMIT_MESSAGE" value="Design" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1651065267287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1651331094825" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">

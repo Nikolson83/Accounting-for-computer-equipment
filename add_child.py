@@ -2,11 +2,12 @@ import tkinter as tk
 from tkinter import ttk
 import sqlite3
 from create_db import DB
+#from  main import Main
 
 class CreateChild(tk.Toplevel):
-    def __init__(self, root):
+    def __init__(self, root, row_id):
         super().__init__(root)
-        self.init_child()
+        self.init_child(row_id)
         self.grab_focus()
         #self.open_db() #База данных
         #self.db = DB()
@@ -14,7 +15,7 @@ class CreateChild(tk.Toplevel):
     #def open_db(self):
     #    DB() #База данных
 
-    def init_child(self):
+    def init_child(self, row_id):
         self.title("Додати дані - Облік комп'ютерної техніки ")
         self.geometry("924x600+340+60")  # Указываем размеры окна
         self.resizable(False, False)  # Делаем невозможным менять размеры окна
@@ -27,9 +28,15 @@ class CreateChild(tk.Toplevel):
         btn_checked_dialog = tk.Button(toolbar_child, text='Добавить', command=self.destroy, bg='#d7d8e0', bd=0,
                                      compound=tk.TOP, image=self.checked_img)
         btn_checked_dialog.pack(side=tk.LEFT, padx=10)
+
         btn_checked_dialog.bind('<Button-1>', lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
                                                                        self.entry_PIB.get(), self.entry_division.get(),
                                                                        self.entry_data_in.get(), self.entry_data_out.get()))
+
+        btn_checked_dialog.bind('<Button-1>',
+                                lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
+                                                           self.entry_PIB.get(), self.entry_division.get(),
+                                                           self.entry_data_in.get(), self.entry_data_out.get()))
 
         self.cancel_img = tk.PhotoImage(file='img/cancel.png')
         btn_cancel_dialog = tk.Button(toolbar_child, text='Отменить', command=self.destroy, bg='#d7d8e0', bd=0,
@@ -67,6 +74,20 @@ class CreateChild(tk.Toplevel):
         self.entry_data_in.place(x=place_x+210, y=place_y+155)
         self.entry_data_out = ttk.Entry(self, width=20)
         self.entry_data_out.place(x=place_x+665, y=place_y+155)
+
+        # Вывод на экран информации с базы данных
+        self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
+        self.c = self.conn.cursor()  # Взаимодействие с базой
+        self.c.execute('''SELECT * FROM accounting WHERE add_id=?''', row_id)
+        row_id = self.c.fetchone()
+
+        self.entry_name.insert(0, row_id[1])
+        self.entry_inv_nomer.insert(0, row_id[2])
+        self.entry_PIB.insert(0, row_id[3])
+        self.entry_division.insert(0, row_id[4])
+        self.entry_data_in.insert(0, row_id[5])
+        self.entry_data_out.insert(0, row_id[6])
+        # END
 
         # Дочернее окно поверх основного
     def grab_focus(self):

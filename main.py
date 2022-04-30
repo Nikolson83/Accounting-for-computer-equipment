@@ -27,6 +27,11 @@ class Main(tk.Frame):
         self.conn.commit()
         self.view_records()
 
+    def update_records(self):
+        row_id = self.tree.set(self.tree.selection()[0], '#1')
+        # Передаю параметр в окно add_child
+        CreateChild(self, row_id)
+
     def search_records(self):
         DB.search_records(self, self.entry_name.get(), self.entry_inv_nomer.get(), self.entry_PIB.get())
         self.entry_name.delete(0, 'end')
@@ -97,7 +102,7 @@ class Main(tk.Frame):
         edit_menu = tk.Menu(my_menu, tearoff=0) # створення меню
         my_menu.add_cascade(label="Редагування", menu=edit_menu) #"Файл" до главного окна
         edit_menu.add_command(label="Додати дані", command=self.open_dialog) #"Новый" подменю "Файл"
-        edit_menu.add_command(label="Змінити дані", command=self.quit)  # "Выход" подменю "Файл"
+        edit_menu.add_command(label="Змінити дані", command=self.update_records)  # "Выход" подменю "Файл"
         edit_menu.add_command(label="Видалити дані", command=self.delete_records)  # "Выход" подменю "Файл"
 
         # Создание меню Обновление
