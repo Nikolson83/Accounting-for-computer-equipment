@@ -45,11 +45,14 @@ class DB:
     def records(self, add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out):
         self.insert_data(add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out)
 
-    #def update_records(self, row_id):
-    #    self.c.execute('''SELECT * FROM accounting WHERE add_id=?''', row_id)
-    #    row_id = self.c.fetchone()
-    #    print(row_id[5])
-    #    return row_id[5]
+
+
+    def update_records(self, add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out, row_id):
+        self.c.execute('''UPDATE accounting SET add_name=?, add_inv_nomer=?, add_pib=?, add_division=?, add_data_in=?, add_data_out=? WHERE add_id=?''',
+                          (add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out, row_id))  # Обновление данных и вытягивает ID с первого столбца
+        #self.db.c.execute('''UPDATE accounting SET description=?, COSTS=?, TOTAL=? WHERE ID=?''',
+        #                  (description, costs, total, self.tree.set(self.tree.selection()[0], '#1'),))  # Обновление данных и вытягивает ID с первого столбца
+        self.conn.commit()  # Сохраним изменения
 
     #def view_records(self):  # Передача данных
     #    self.c.execute('''SELECT * FROM accounting''')

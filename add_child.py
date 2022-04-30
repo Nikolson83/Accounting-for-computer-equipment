@@ -24,24 +24,21 @@ class CreateChild(tk.Toplevel):
         toolbar_child = tk.Frame(self, bg='#d7d8e0', bd=2)
         toolbar_child.pack(side=tk.TOP, fill=tk.X)
 
-        self.checked_img = tk.PhotoImage(file='img/checked.png')
-        btn_checked_dialog = tk.Button(toolbar_child, text='Добавить', command=self.destroy, bg='#d7d8e0', bd=0,
-                                     compound=tk.TOP, image=self.checked_img)
-        btn_checked_dialog.pack(side=tk.LEFT, padx=10)
-
-        btn_checked_dialog.bind('<Button-1>', lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
-                                                                       self.entry_PIB.get(), self.entry_division.get(),
-                                                                       self.entry_data_in.get(), self.entry_data_out.get()))
-
-        btn_checked_dialog.bind('<Button-1>',
-                                lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
-                                                           self.entry_PIB.get(), self.entry_division.get(),
-                                                           self.entry_data_in.get(), self.entry_data_out.get()))
-
         self.cancel_img = tk.PhotoImage(file='img/cancel.png')
-        btn_cancel_dialog = tk.Button(toolbar_child, text='Отменить', command=self.destroy, bg='#d7d8e0', bd=0,
+        btn_cancel_dialog = tk.Button(toolbar_child, text='Відмінити', command=self.destroy, bg='#d7d8e0', bd=0,
                                       compound=tk.TOP, image=self.cancel_img)
         btn_cancel_dialog.pack(side=tk.LEFT, padx=10)
+
+        if row_id == 0:
+            self.checked_img = tk.PhotoImage(file='img/checked.png')
+            btn_checked_dialog = tk.Button(toolbar_child, text='Додати', command=self.destroy, bg='#d7d8e0', bd=0,
+                                         compound=tk.TOP, image=self.checked_img)
+            btn_checked_dialog.pack(side=tk.LEFT, padx=10)
+
+            btn_checked_dialog.bind('<Button-1>', lambda event: DB().records(self.entry_name.get(), self.entry_inv_nomer.get(),
+                                                                             self.entry_PIB.get(), self.entry_division.get(),
+                                                                             self.entry_data_in.get(), self.entry_data_out.get()))
+
         ########################################################################
 
         place_x = 50
@@ -75,19 +72,32 @@ class CreateChild(tk.Toplevel):
         self.entry_data_out = ttk.Entry(self, width=20)
         self.entry_data_out.place(x=place_x+665, y=place_y+155)
 
-        # Вывод на экран информации с базы данных
-        self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
-        self.c = self.conn.cursor()  # Взаимодействие с базой
-        self.c.execute('''SELECT * FROM accounting WHERE add_id=?''', row_id)
-        row_id = self.c.fetchone()
+        if row_id != 0:
+            # Вывод на экран информации с базы данных
+            self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
+            self.c = self.conn.cursor()  # Взаимодействие с базой
+            self.c.execute('''SELECT * FROM accounting WHERE add_id=?''', [row_id])
+            row = self.c.fetchone()
 
-        self.entry_name.insert(0, row_id[1])
-        self.entry_inv_nomer.insert(0, row_id[2])
-        self.entry_PIB.insert(0, row_id[3])
-        self.entry_division.insert(0, row_id[4])
-        self.entry_data_in.insert(0, row_id[5])
-        self.entry_data_out.insert(0, row_id[6])
-        # END
+            self.entry_name.insert(0, row[1])
+            self.entry_inv_nomer.insert(0, row[2])
+            self.entry_PIB.insert(0, row[3])
+            self.entry_division.insert(0, row[4])
+            self.entry_data_in.insert(0, row[5])
+            self.entry_data_out.insert(0, row[6])
+
+            self.checked_img = tk.PhotoImage(file='img/checked.png')
+            btn_checked_dialog = tk.Button(toolbar_child, text='Оновити', command=self.destroy, bg='#d7d8e0', bd=0,
+                                         compound=tk.TOP, image=self.checked_img)
+            btn_checked_dialog.pack(side=tk.LEFT, padx=10)
+
+            btn_checked_dialog.bind('<Button-1>',
+                                    lambda event: DB().update_records(self.entry_name.get(), self.entry_inv_nomer.get(),
+                                                                      self.entry_PIB.get(), self.entry_division.get(),
+                                                                      self.entry_data_in.get(), self.entry_data_out.get(),
+                                                                      row_id))
+            print(row_id)
+            # END
 
         # Дочернее окно поверх основного
     def grab_focus(self):

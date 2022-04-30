@@ -112,7 +112,7 @@ class Main(tk.Frame):
         update_menu.add_command(label="Пошук", command=self.search_records)  # "Найти"
 
     def open_dialog(self):
-         CreateChild(self)
+         CreateChild(self, row_id=0)
 
 if __name__ == "__main__": # Параметры главного окна
     root = tk.Tk()
