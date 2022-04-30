@@ -31,6 +31,7 @@ class Main(tk.Frame):
         row_id = self.tree.set(self.tree.selection()[0], '#1')
         # Передаю параметр в окно add_child
         CreateChild(self, row_id)
+        self.view_records()
 
     def search_records(self):
         DB.search_records(self, self.entry_name.get(), self.entry_inv_nomer.get(), self.entry_PIB.get())
@@ -113,6 +114,7 @@ class Main(tk.Frame):
 
     def open_dialog(self):
          CreateChild(self, row_id=0)
+         self.view_records()
 
 if __name__ == "__main__": # Параметры главного окна
     root = tk.Tk()

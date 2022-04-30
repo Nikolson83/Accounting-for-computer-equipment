@@ -96,7 +96,6 @@ class CreateChild(tk.Toplevel):
                                                                       self.entry_PIB.get(), self.entry_division.get(),
                                                                       self.entry_data_in.get(), self.entry_data_out.get(),
                                                                       row_id))
-            print(row_id)
             # END
 
         # Дочернее окно поверх основного
