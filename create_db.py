@@ -1,4 +1,5 @@
 import sqlite3
+from tkinter import messagebox as mbox # Всплывающее окно
 
 class DB:
     # Создание конструктор класса для DB
@@ -18,7 +19,7 @@ class DB:
         if not add_name:
             if not add_inv_nomer:
                 if not add_pib:
-                 print('Нема даних для пошуку')
+                 mbox.showwarning('Запис не знайдена.', 'Немає даних для пошуку!')
                 else:
                     add_pib = ('%' + add_pib + '%',)  # Подстановочные символы ищет любое значение
                     self.c.execute('''SELECT * FROM accounting WHERE add_pib LIKE ?''',
