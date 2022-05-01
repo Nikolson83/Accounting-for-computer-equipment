@@ -17,10 +17,10 @@ class CreateChild(tk.Toplevel):
 
     def init_child(self, row_id):
         self.title("Додати дані - Облік комп'ютерної техніки ")
-        self.geometry("924x600+340+60")  # Указываем размеры окна
-        self.resizable(False, False)  # Делаем невозможным менять размеры окна
+        self.geometry("924x600+340+60")  #Указываем размеры окна
+        self.resizable(False, False)  #Делаем невозможным менять размеры окна
 
-        # Верхняя полоска кнопок для дочернего окна
+        #Верхняя полоска кнопок для дочернего окна
         toolbar_child = tk.Frame(self, bg='#d7d8e0', bd=2)
         toolbar_child.pack(side=tk.TOP, fill=tk.X)
 
@@ -73,9 +73,9 @@ class CreateChild(tk.Toplevel):
         self.entry_data_out.place(x=place_x+665, y=place_y+155)
 
         if row_id != 0:
-            # Вывод на экран информации с базы данных
-            self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
-            self.c = self.conn.cursor()  # Взаимодействие с базой
+            #Вывод на экран информации с базы данных
+            self.conn = sqlite3.connect('accounting.db')  #Соединение с базой данных
+            self.c = self.conn.cursor()  #Взаимодействие с базой
             self.c.execute('''SELECT * FROM accounting WHERE add_id=?''', [row_id])
             row = self.c.fetchone()
 
@@ -98,7 +98,7 @@ class CreateChild(tk.Toplevel):
                                                                       row_id))
             # END
 
-        # Дочернее окно поверх основного
+        #Дочернее окно поверх основного
     def grab_focus(self):
         self.grab_set()
         self.focus_set()

@@ -1,5 +1,5 @@
 import sqlite3
-from tkinter import messagebox as mbox # Всплывающее окно
+from tkinter import messagebox as mbox #Всплывающее окно
 
 class DB:
     # Создание конструктор класса для DB
@@ -8,13 +8,13 @@ class DB:
         self.c = self.conn.cursor() #Взаимодействие с базой
         self.c.execute('''SELECT * FROM accounting''')
 
-    # Добавляем в поля вводимые значения
+    #Добавляем в поля вводимые значения
     def insert_data(self, add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out):
         self.c.execute('''INSERT INTO accounting(add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out)VALUES (?, ?, ?, ?, ?, ?)''',
                        (add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out))
         self.conn.commit()
 
-    # Функция поиска
+    #Функция поиска
     def search_records(self, add_name, add_inv_nomer, add_pib):
         if not add_name:
             if not add_inv_nomer:
@@ -29,12 +29,12 @@ class DB:
                 self.c.execute('''SELECT * FROM accounting WHERE add_inv_nomer LIKE ?''',
                                add_inv_nomer)  # Обращение к полю description LIKE это наш запрос
         else:
-            add_name = ('%' + add_name + '%',)  # Подстановочные символы ищет любое значение
+            add_name = ('%' + add_name + '%',)  #Подстановочные символы ищет любое значение
             self.c.execute('''SELECT * FROM accounting WHERE add_name LIKE ?''',
                            add_name)  # Обращение к полю description LIKE это наш запрос
 
     def add_db(self):
-        self.conn = sqlite3.connect('accounting.db') #Соединение с базой данных
+        self.conn = sqlite3.connect('accounting.db') #Соединение с базой данных:
         self.c = self.conn.cursor() #Взаимодействие с базой
         self.c.execute(
             '''CREATE TABLE IF NOT EXISTS accounting (add_id integer primary key, add_name text,
@@ -52,10 +52,10 @@ class DB:
         self.c.execute('''UPDATE accounting SET add_name=?, add_inv_nomer=?, add_pib=?, add_division=?, add_data_in=?, add_data_out=? WHERE add_id=?''',
                           (add_name, add_inv_nomer, add_pib, add_division, add_data_in, add_data_out, row_id))  # Обновление данных и вытягивает ID с первого столбца
         #self.db.c.execute('''UPDATE accounting SET description=?, COSTS=?, TOTAL=? WHERE ID=?''',
-        #                  (description, costs, total, self.tree.set(self.tree.selection()[0], '#1'),))  # Обновление данных и вытягивает ID с первого столбца
-        self.conn.commit()  # Сохраним изменения
+        #                  (description, costs, total, self.tree.set(self.tree.selection()[0], '#1'),))  #Обновление данных и вытягивает ID с первого столбца
+        self.conn.commit()  #Сохраним изменения
 
-    #def view_records(self):  # Передача данных
+    #def view_records(self):  #Передача данных
     #    self.c.execute('''SELECT * FROM accounting''')
     #    [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных
     #    # Генератор
