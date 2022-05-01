@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox as mbox # Всплывающее окно
 from tkinter import ttk
 from add_child import CreateChild
 import sqlite3
@@ -28,9 +29,14 @@ class Main(tk.Frame):
         self.view_records()
 
     def update_records(self):
-        row_id = self.tree.set(self.tree.selection()[0], '#1')
-        # Передаю параметр в окно add_child
-        CreateChild(self, row_id)
+        try:
+            row_id = self.tree.set(self.tree.selection()[0], '#1')
+            # Передаю параметр в окно add_child
+            CreateChild(self, row_id)
+        except IndexError:
+            mbox.showwarning('Запис не знайдена.', 'Необхідно вибрати запис для редагування!') # mbox.showerror "Ошибка"
+            # mbox.showwarning "Предупреждение" # mbox.askquestion "Вопрос" # mbox.showinfo "Информация"
+
         self.view_records()
 
     def search_records(self):
