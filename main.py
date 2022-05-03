@@ -50,7 +50,7 @@ class Main(tk.Frame):
     def search_db(self):
         #Верхняя полоска кнопок для дочернего окна
         toolbar_main = tk.Frame(bg='#d7d8e0', bd=2)
-        toolbar_main.pack(side=tk.TOP, ipady=80, ipadx=545)
+        toolbar_main.pack(side=tk.TOP, ipady=80, ipadx=555)
 
         label_name = tk.Label(toolbar_main, text='Матеріальна цінність:', font=8, bg='#d7d8e0')
         label_name.place(x=20, y=25)
@@ -132,6 +132,6 @@ if __name__ == "__main__": # Параметры главного окна
     app = Main(root)
     app.pack()
     root.title("Головне вікно - Облік комп'ютерної техніки")
-    root.geometry("1100x750+250+10") #Указываем размеры окна
+    root.geometry("1115x750+250+10") #Указываем размеры окна
     root.resizable(False, False) #Делаем невозможным менять размеры окна
     root.mainloop()
