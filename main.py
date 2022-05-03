@@ -88,6 +88,11 @@ class Main(tk.Frame):
         self.tree.heading('add_data_out', text='Дата зняття')
 
         self.tree.pack(side=tk.LEFT, ipady=180, ipadx=10)
+
+        #Параметры для прокрутки
+        scroll = tk.Scrollbar(self, command=self.tree.yview)
+        scroll.pack(side=tk.LEFT, fill=tk.Y)
+        self.tree.configure(yscrollcommand=scroll.set)
         # End
 
     def init_main(self):
