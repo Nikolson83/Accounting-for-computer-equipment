@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="047d6e74-2827-4d38-8128-8f3a28519a1c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/accounting.db" beforeDir="false" afterPath="$PROJECT_DIR$/accounting.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/add_child.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_child.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,10 +82,10 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pythonProject1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python">
@@ -136,7 +138,16 @@
       <workItem from="1651319736817" duration="17203000" />
       <workItem from="1651391483750" duration="7615000" />
       <workItem from="1651498492815" duration="2395000" />
-      <workItem from="1651560583842" duration="1617000" />
+      <workItem from="1651560583842" duration="3373000" />
+      <workItem from="1651589373842" duration="44000" />
+      <workItem from="1651843727751" duration="29000" />
+      <workItem from="1659687067821" duration="2906000" />
+      <workItem from="1659944531067" duration="2696000" />
+      <workItem from="1660287111076" duration="2187000" />
+      <workItem from="1660289346081" duration="58000" />
+      <workItem from="1660290338886" duration="3539000" />
+      <workItem from="1660307118997" duration="110000" />
+      <workItem from="1660375139792" duration="1342000" />
     </task>
     <task id="LOCAL-00001" summary="Add test.py">
       <created>1650214550949</created>
@@ -278,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651562049712</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="The size to mail">
+      <created>1651562782561</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1651562782561</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -341,10 +359,11 @@
     <MESSAGE value="Add search to try message" />
     <MESSAGE value="Correct" />
     <MESSAGE value="Add tree to scroll" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add tree to scroll" />
+    <MESSAGE value="The size to mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="The size to mail" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1651562491724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1660376493958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">

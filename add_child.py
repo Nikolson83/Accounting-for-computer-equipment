@@ -1,6 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
 import sqlite3
+from tkinter import ttk
 from create_db import DB
 #from  main import Main
 

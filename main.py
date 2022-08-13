@@ -1,8 +1,8 @@
 import tkinter as tk
+import sqlite3
 from tkinter import messagebox as mbox #Всплывающее окно
 from tkinter import ttk
 from add_child import CreateChild
-import sqlite3
 from create_db import DB
 
 class Main(tk.Frame):
