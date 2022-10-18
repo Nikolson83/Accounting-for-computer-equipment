@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="047d6e74-2827-4d38-8128-8f3a28519a1c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounting.db" beforeDir="false" afterPath="$PROJECT_DIR$/accounting.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add_child.py" beforeDir="false" afterPath="$PROJECT_DIR$/add_child.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../pythonProject1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.General" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python">
@@ -147,7 +145,29 @@
       <workItem from="1660289346081" duration="58000" />
       <workItem from="1660290338886" duration="3539000" />
       <workItem from="1660307118997" duration="110000" />
-      <workItem from="1660375139792" duration="1342000" />
+      <workItem from="1660375139792" duration="3129000" />
+      <workItem from="1660632231942" duration="1223000" />
+      <workItem from="1660916576898" duration="1707000" />
+      <workItem from="1660995917833" duration="666000" />
+      <workItem from="1661169546504" duration="700000" />
+      <workItem from="1661324224529" duration="626000" />
+      <workItem from="1661418149794" duration="660000" />
+      <workItem from="1661753258440" duration="1864000" />
+      <workItem from="1661770726096" duration="1937000" />
+      <workItem from="1661778695281" duration="22000" />
+      <workItem from="1661861532600" duration="964000" />
+      <workItem from="1661864544745" duration="8000" />
+      <workItem from="1661864566108" duration="151000" />
+      <workItem from="1662188125182" duration="49000" />
+      <workItem from="1662919635430" duration="35000" />
+      <workItem from="1662987556089" duration="1921000" />
+      <workItem from="1663225949764" duration="22000" />
+      <workItem from="1663399432090" duration="93000" />
+      <workItem from="1663594995624" duration="178000" />
+      <workItem from="1663925713407" duration="31000" />
+      <workItem from="1665142463735" duration="80000" />
+      <workItem from="1665311188871" duration="16000" />
+      <workItem from="1666078901862" duration="1191000" />
     </task>
     <task id="LOCAL-00001" summary="Add test.py">
       <created>1650214550949</created>
@@ -296,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651562782561</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="correct">
+      <created>1660376679464</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1660376679464</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -360,10 +387,11 @@
     <MESSAGE value="Correct" />
     <MESSAGE value="Add tree to scroll" />
     <MESSAGE value="The size to mail" />
-    <option name="LAST_COMMIT_MESSAGE" value="The size to mail" />
+    <MESSAGE value="correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="correct" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1660376493958" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Accounting_for_computer_equipment$main.coverage" NAME="main Coverage Results" MODIFIED="1665142483783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">

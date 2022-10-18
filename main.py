@@ -1,9 +1,10 @@
 import tkinter as tk
 import sqlite3
-from tkinter import messagebox as mbox #Всплывающее окно
+from tkinter import messagebox as mbox  # Всплывающее окно
 from tkinter import ttk
 from add_child import CreateChild
 from create_db import DB
+
 
 class Main(tk.Frame):
     def __init__(self, root):
@@ -12,30 +13,33 @@ class Main(tk.Frame):
         self.view_records()
 
     def view_insert(self):
-        self.conn = sqlite3.connect('accounting.db')  #Соединение с базой данных
-        self.c = self.conn.cursor()  #Взаимодействие с базой
+        self.conn = sqlite3.connect('accounting.db')  # Соединение с базой данных
+        self.c = self.conn.cursor()  # Взаимодействие с базой
         self.c.execute('''SELECT * FROM accounting''')
 
     def view_records(self):  # Передача данных
         self.view_insert()
-        [self.tree.delete(i) for i in self.tree.get_children()]  #Очистна данных
+        [self.tree.delete(i) for i in self.tree.get_children()]  # Очистна данных
         # Генератор
-        [self.tree.insert('', 'end', values=row) for row in self.c.fetchall()]  #Добавление новых значений после предедущих
+        [self.tree.insert('', 'end', values=row) for row in
+         self.c.fetchall()]  # Добавление новых значений после предедущих
 
     def delete_records(self):
-        for selection_item in self.tree.selection(): # Цыкл проходит по всем строка
-            self.c.execute('''DELETE FROM accounting WHERE add_id=?''', (self.tree.set(selection_item, '#1'),)) #Метот set возвращает значение
+        for selection_item in self.tree.selection():  # Цыкл проходит по всем строка
+            self.c.execute('''DELETE FROM accounting WHERE add_id=?''',
+                           (self.tree.set(selection_item, '#1'),))  # Метот set возвращает значение
         self.conn.commit()
         self.view_records()
 
     def update_records(self):
         try:
             row_id = self.tree.set(self.tree.selection()[0], '#1')
-            #Передаю параметр в окно add_child
+            # Передаю параметр в окно add_child
             CreateChild(self, row_id)
         except IndexError:
-            mbox.showwarning('Запис не знайдена.', 'Необхідно вибрати запис для редагування!') #mbox.showerror "Ошибка"
-            #mbox.showwarning "Предупреждение" #mbox.askquestion "Вопрос" #mbox.showinfo "Информация"
+            mbox.showwarning('Запис не знайдена.',
+                             'Необхідно вибрати запис для редагування!')  # mbox.showerror "Ошибка"
+            # mbox.showwarning "Предупреждение" #mbox.askquestion "Вопрос" #mbox.showinfo "Информация"
 
         self.view_records()
 
@@ -44,11 +48,11 @@ class Main(tk.Frame):
         self.entry_name.delete(0, 'end')
         self.entry_inv_nomer.delete(0, 'end')
         self.entry_PIB.delete(0, 'end')
-        [self.tree.delete(i) for i in self.tree.get_children()] #Очистка нашу таблицу
-        [self.tree.insert('', 'end', values=row) for row in self.c.fetchall()] #Отображение нашего запроса
+        [self.tree.delete(i) for i in self.tree.get_children()]  # Очистка нашу таблицу
+        [self.tree.insert('', 'end', values=row) for row in self.c.fetchall()]  # Отображение нашего запроса
 
     def search_db(self):
-        #Верхняя полоска кнопок для дочернего окна
+        # Верхняя полоска кнопок для дочернего окна
         toolbar_main = tk.Frame(bg='#d7d8e0', bd=2)
         toolbar_main.pack(side=tk.TOP, ipady=80, ipadx=555)
 
@@ -68,7 +72,7 @@ class Main(tk.Frame):
         # End
 
     def view_tree(self):
-        #Таблица и формирование шапки
+        # Таблица и формирование шапки
         self.tree = ttk.Treeview(self, columns=('add_id', 'add_name', 'add_inv_nomer', 'add_pib',
                                                 'add_division', 'add_data_in', 'add_data_out'), show='headings')
         self.tree.column('add_id', width=30, anchor=tk.CENTER)
@@ -89,7 +93,7 @@ class Main(tk.Frame):
 
         self.tree.pack(side=tk.LEFT, ipady=180, ipadx=10)
 
-        #Параметры для прокрутки
+        # Параметры для прокрутки
         scroll = tk.Scrollbar(self, command=self.tree.yview)
         scroll.pack(side=tk.LEFT, fill=tk.Y)
         self.tree.configure(yscrollcommand=scroll.set)
@@ -102,36 +106,37 @@ class Main(tk.Frame):
         my_menu = tk.Menu(self)
         root.config(menu=my_menu)
 
-        #Создание меню Файл
-        file_menu = tk.Menu(my_menu, tearoff=0) # створення меню
-        my_menu.add_cascade(label="Файл", menu=file_menu) #"Файл" до главного окна
-        file_menu.add_command(label="Імпорт", command=self.quit) #"Новый" подменю "Файл"
-        file_menu.add_command(label="Експорт", command=self.quit)  #"Новый" подменю "Файл"
-        file_menu.add_separator() #Горизонтальная полоса
-        file_menu.add_command(label="Вихід", command=self.quit)  #"Выход" подменю "Файл"
+        # Создание меню Файл
+        file_menu = tk.Menu(my_menu, tearoff=0)  # створення меню
+        my_menu.add_cascade(label="Файл", menu=file_menu)  # "Файл" до главного окна
+        file_menu.add_command(label="Імпорт", command=self.quit)  # "Новый" подменю "Файл"
+        file_menu.add_command(label="Експорт", command=self.quit)  # "Новый" подменю "Файл"
+        file_menu.add_separator()  # Горизонтальная полоса
+        file_menu.add_command(label="Вихід", command=self.quit)  # "Выход" подменю "Файл"
 
-        #Создание меню Редактирование
-        edit_menu = tk.Menu(my_menu, tearoff=0) # створення меню
-        my_menu.add_cascade(label="Редагування", menu=edit_menu) #"Файл" до главного окна
-        edit_menu.add_command(label="Додати дані", command=self.open_dialog) #"Новый" подменю "Редактирование"
+        # Создание меню Редактирование
+        edit_menu = tk.Menu(my_menu, tearoff=0)  # створення меню
+        my_menu.add_cascade(label="Редагування", menu=edit_menu)  # "Файл" до главного окна
+        edit_menu.add_command(label="Додати дані", command=self.open_dialog)  # "Новый" подменю "Редактирование"
         edit_menu.add_command(label="Змінити дані", command=self.update_records)  # "Выход" подменю "Редактирование"
         edit_menu.add_command(label="Видалити дані", command=self.delete_records)  # "Выход" подменю "Редактирование"
 
-        #Создание меню Обновление
-        update_menu = tk.Menu(my_menu, tearoff=0) # створення меню
+        # Создание меню Обновление
+        update_menu = tk.Menu(my_menu, tearoff=0)  # створення меню
         my_menu.add_cascade(label="Вид", menu=update_menu)  # "Файл" до главного окна
         update_menu.add_command(label="Пошук", command=self.search_records)  # "Найти"
         update_menu.add_command(label="Оновлення", command=self.view_records)  # "Новый" подменю "Обновление"
 
     def open_dialog(self):
-         CreateChild(self, row_id=0)
-         self.view_records()
+        CreateChild(self, row_id=0)
+        self.view_records()
 
-if __name__ == "__main__": # Параметры главного окна
+
+if __name__ == "__main__":  # Параметры главного окна
     root = tk.Tk()
     app = Main(root)
     app.pack()
     root.title("Головне вікно - Облік комп'ютерної техніки")
-    root.geometry("1115x750+250+10") #Указываем размеры окна
-    root.resizable(False, False) #Делаем невозможным менять размеры окна
+    root.geometry("1115x750+250+10")  # Указываем размеры окна
+    root.resizable(False, False)  # Делаем невозможным менять размеры окна
     root.mainloop()
